@@ -1,0 +1,20 @@
+---
+title: "Strategies for a UIKit to SwiftUI Migration"
+publishedAt: "2023-11-10"
+summary: "A practical guide to incrementally adopting SwiftUI in large-scale iOS applications."
+---
+
+# The Challenge of Legacy Code
+
+Migrating a massive banking application from UIKit to SwiftUI is no small feat. It requires a balanced approach to ensure stability while embracing the modern declarative UI paradigm.
+
+## Incremental Adoption
+
+We adopted a strangler fig pattern for our UI layer:
+1. **New Features**: All net-new screens are built exclusively in SwiftUI.
+2. **Hybrid Wrappers**: We utilize `UIHostingController` extensively to embed SwiftUI views within existing UIKit hierarchies.
+3. **Component Library**: We rebuilt our core design system in SwiftUI first, ensuring consistency across both paradigms.
+
+By prioritizing incrementality, we minimized risk while delivering a smoother user experience.
+
+*This is a placeholder post.*
