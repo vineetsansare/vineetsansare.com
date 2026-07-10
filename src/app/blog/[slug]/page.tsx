@@ -105,7 +105,7 @@ export default async function Blog({
     description: post.summary,
     image: post.image
       ? `${DATA.url}${post.image}`
-      : `${DATA.url}/blog/${slug}/opengraph-image`,
+      : `${DATA.url}/me.png`,
     url: `${DATA.url}/blog/${slug}`,
     author: {
       "@type": "Person",
