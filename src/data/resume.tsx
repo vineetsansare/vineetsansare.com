@@ -76,7 +76,7 @@ export const DATA = {
       badges: [],
       location: "Dubai",
       title: "Engineering Tech Lead",
-      logoUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/05/2f/eb/052feb2e-a5a4-7e8c-8f4b-84a1d4a046fb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      logoUrl: "/enbd-logo.jpg",
       start: "2022",
       end: "Present",
       description:
@@ -88,7 +88,7 @@ export const DATA = {
       badges: [],
       location: "Abu Dhabi",
       title: "Senior Software Engineer",
-      logoUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/31/5e/bc/315ebc22-2612-4028-98e3-0dcd6786c23d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      logoUrl: "/adib-logo.jpg",
       start: "2019",
       end: "2022",
       description:
@@ -179,7 +179,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/10/72/7b/10727b1c-7f55-14f7-8742-1262d989f642/Screenshot-1.png/643x0w.jpg",
+      image: "/enbd-project.jpg",
       video: "",
     },
     {
@@ -202,7 +202,7 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/ee/12/37/ee12371c-74a9-4676-905e-a43b4f620247/Screenshot-1.png/643x0w.jpg",
+      image: "/adib-project.jpg",
       video: "",
     },
     {
@@ -259,7 +259,7 @@ export const DATA = {
       dates: "2023",
       location: "Emirates NBD",
       description: "Recognized for outstanding technical leadership and successful delivery of the Digital Wealth portfolio.",
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/05/2f/eb/052feb2e-a5a4-7e8c-8f4b-84a1d4a046fb/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      image: "/enbd-logo.jpg",
     },
     {
       title: "ACE Award",
