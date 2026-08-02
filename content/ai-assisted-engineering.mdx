@@ -1,22 +1,38 @@
 ---
 title: "AI-Assisted Engineering in Digital Banking"
-publishedAt: "2024-03-15"
+publishedAt: "2025-01-15"
 summary: "How we leverage AI tools like Claude Code and GitHub Copilot to accelerate software delivery securely."
 ---
 
 # The Shift to AI-Powered Delivery
 
-In the highly regulated space of Digital Banking, security and compliance often dictate delivery velocity. However, by carefully integrating AI tools into our engineering workflows, we've managed to significantly boost productivity without compromising our rigorous standards.
+In the highly regulated world of Digital Banking, security and compliance usually dictate how fast we can move. Moving fast and breaking things isn't an option when people's finances are on the line. 
 
-## Secure Adoption of AI
+However, by carefully integrating AI tools into our engineering workflows, we've managed to significantly boost our productivity without compromising our rigorous security standards.
 
-We evaluate tools like:
-- **GitHub Copilot** for real-time autocomplete
-- **Claude Code** for complex architecture refactoring
-- **Local LLMs** for processing sensitive data internally
+## Our Secure AI Workflow
 
-## Measuring Impact
+We don't just throw AI at the wall to see what sticks. We evaluate and adopt specific tools for specific jobs:
+- **GitHub Copilot** acts as our real-time pair programmer for autocomplete and boilerplate generation.
+- **Claude Code** operates as our autonomous agent for complex architecture refactoring and test generation.
+- **Local LLMs** handle sensitive data and internal logic processing where data privacy is paramount.
 
-Since adopting these tools, our PR review times have decreased by 30%, and boilerplate generation has become near-instant. The key to this success is providing engineers with clear guardrails and automated security checks.
+Here is a visual breakdown of how a typical feature moves through our AI-assisted pipeline:
 
-*This is a placeholder post.*
+```mermaid
+graph TD
+    A[Engineer] -->|Drafts Architecture| B(Local LLM)
+    B --> C[Implementation Phase]
+    C -->|Real-time Coding| D(GitHub Copilot)
+    C -->|Mass Refactoring & Tests| E(Claude Code)
+    D --> F{Automated Security Gates}
+    E --> F
+    F -->|Passes Sonar/Lint| G[Production Ready]
+    F -->|Fails Checks| A
+```
+
+## Measuring the Impact
+
+The results have been incredible. Since adopting these tools, our pull request (PR) review times have decreased by 30%. Writing boilerplate code that used to take hours now happens near-instantly. 
+
+The key to this success isn't just the AI itself—it's providing our engineers with clear guardrails and automated security checks. We aren't replacing engineers; we're giving them superpowers so they can focus on solving complex business problems instead of writing repetitive syntax.

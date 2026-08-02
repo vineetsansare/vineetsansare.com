@@ -1,17 +1,34 @@
 ---
 title: "Git Worktree + Claude Code = True Parallelism"
-publishedAt: "2024-05-22"
+publishedAt: "2025-02-22"
 summary: "How I use git worktrees and AI agents to work on multiple features concurrently without context switching pain."
 ---
 
 # Breaking the Linear Workflow
 
-Developers often struggle with context switching when blocked on a code review or a slow CI build. Git stashing works, but it's fragile.
+As developers, we all know the pain of context switching. You're deep into building a new feature, and suddenly a critical bug is reported in production. You have to `git stash` your changes, checkout `main`, create a hotfix branch, fix the bug, and then try to remember where you left off. It's frustrating and fragile.
 
-## The Git Worktree Approach
+Enter `git worktree`.
 
-With `git worktree`, you can checkout multiple branches in separate directories. When paired with AI coding agents like Claude Code, this becomes a superpower.
+## What is a Git Worktree?
 
-I can have Claude Code running tests and refactoring in one worktree, while I manually debug an urgent issue in another worktree. This enables true multi-processing for an individual engineer.
+A git worktree allows you to check out multiple branches of the same repository into separate directories simultaneously. No more stashing. No more dirty working trees blocking your checkouts. 
 
-*This is a placeholder post.*
+When you pair this capability with autonomous AI coding agents like **Claude Code**, it becomes an absolute superpower.
+
+## True Multitasking with AI
+
+Here is how I structure my local development environment to achieve true parallelism:
+
+```mermaid
+flowchart TD
+    Repo[(Main Git Repository)]
+    Repo --- WT1[Folder: /repo-feature-a]
+    Repo --- WT2[Folder: /repo-bugfix-b]
+    WT1 -.->|AI Agent| Claude[Claude Code runs tests & refactors]
+    WT2 -.->|Human| Dev[You manually debug the urgent issue]
+```
+
+I can have Claude Code running long test suites, linting, or performing large-scale codebase refactoring in one worktree folder, while I open another worktree folder in my IDE to manually debug an urgent issue. 
+
+Because they are physically separated on my file system but linked to the same Git history, neither workflow interrupts the other. It literally feels like having a clone of yourself working right beside you.

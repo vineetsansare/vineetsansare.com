@@ -6,15 +6,33 @@ summary: "A practical guide to incrementally adopting SwiftUI in large-scale iOS
 
 # The Challenge of Legacy Code
 
-Migrating a massive banking application from UIKit to SwiftUI is no small feat. It requires a balanced approach to ensure stability while embracing the modern declarative UI paradigm.
+Migrating a massive, enterprise-grade banking application from UIKit to SwiftUI is no small feat. A "big bang" rewrite where you halt all feature development to rewrite the app from scratch is a recipe for disaster. 
 
-## Incremental Adoption
+Instead, it requires a balanced, pragmatic approach to ensure absolute stability for your users while gradually embracing the modern declarative UI paradigm.
 
-We adopted a strangler fig pattern for our UI layer:
-1. **New Features**: All net-new screens are built exclusively in SwiftUI.
-2. **Hybrid Wrappers**: We utilize `UIHostingController` extensively to embed SwiftUI views within existing UIKit hierarchies.
-3. **Component Library**: We rebuilt our core design system in SwiftUI first, ensuring consistency across both paradigms.
+## The Strangler Fig Pattern
 
-By prioritizing incrementality, we minimized risk while delivering a smoother user experience.
+For our UI layer, we adopted the Strangler Fig pattern—a strategy where you incrementally replace pieces of the old system with the new one until the old system can be safely removed. 
 
-*This is a placeholder post.*
+Our migration strategy breaks down into three core pillars:
+
+1. **New Features First**: All net-new screens and isolated flows are built exclusively in SwiftUI.
+2. **Hybrid Wrappers**: For legacy screens that need minor updates, we utilize `UIHostingController` extensively. This allows us to safely embed new SwiftUI views directly inside our existing UIKit hierarchies.
+3. **Component Library Foundation**: Before migrating complex screens, we rebuilt our core design system (buttons, typography, text fields) in SwiftUI. This ensured visual consistency across both paradigms.
+
+Here's how the hybrid architecture flows in practice:
+
+```mermaid
+sequenceDiagram
+    participant UIKit as Legacy UIKit View
+    participant Host as UIHostingController
+    participant SwiftUI as SwiftUI View
+    
+    UIKit->>Host: Instantiates with SwiftUI View
+    Host->>SwiftUI: Renders Declarative UI
+    SwiftUI-->>UIKit: Passes State & Callbacks
+```
+
+## Move Fast, But Don't Break Things
+
+By prioritizing incrementality, we completely minimized our risk profile. Users continued to get a smooth, reliable experience, while our engineering team was able to transition to a faster, more modern development cycle without halting business delivery.
