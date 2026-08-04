@@ -112,9 +112,9 @@ export default function RootLayout({
           fontMono.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider delayDuration={0}>
-            <div className="absolute inset-0 top-0 left-0 right-0 h-[300px] overflow-hidden z-0 pointer-events-none">
+            <div className="absolute inset-0 top-0 left-0 right-0 h-[600px] overflow-hidden z-0 pointer-events-none">
               <FlickeringGrid
                 className="h-full w-full"
                 squareSize={4}

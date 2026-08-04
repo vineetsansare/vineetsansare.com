@@ -142,7 +142,8 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           const opacity = squares[i * rows + j]
-          ctx.fillStyle = `${memoizedColor}${opacity})`
+          const isGold = (i * 7 + j * 13) % 100 < 5
+          ctx.fillStyle = isGold ? `rgba(251, 191, 36, ${opacity})` : `${memoizedColor}${opacity})`
           ctx.fillRect(
             i * (squareSize + gridGap) * dpr,
             j * (squareSize + gridGap) * dpr,
