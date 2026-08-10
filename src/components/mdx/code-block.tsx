@@ -5,6 +5,7 @@ import { Copy, Check } from "lucide-react";
 import { Button } from "../ui/button";
 import { codeToHtml } from "shiki/bundle/web";
 import { cn } from "@/lib/utils";
+import { Mermaid } from "./mermaid";
 
 type CodeBlockProps = ComponentProps<"pre">;
 
@@ -16,11 +17,13 @@ function extractLanguage(className?: string): string {
 
 export function CodeBlock({ children, ...props }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  const [{ html, className, title }, setRenderState] = useState<{
+  const [{ html, className, title, codeText, lang }, setRenderState] = useState<{
     html: string;
     className: string;
     title: string | null;
-  }>({ html: "", className: "", title: null });
+    codeText: string;
+    lang: string;
+  }>({ html: "", className: "", title: null, codeText: "", lang: "" });
   const preRef = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
@@ -32,6 +35,11 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
     const lang = extractLanguage(codeEl.className);
     const nextTitle = codeEl.getAttribute("data-title");
     const nextClassName = codeEl.className || "";
+
+    if (lang === "mermaid") {
+      setRenderState({ html: "", className: nextClassName, title: nextTitle, codeText, lang });
+      return;
+    }
 
     void codeToHtml(codeText, {
       lang: lang as any,
@@ -48,11 +56,13 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
           html: doc.querySelector("code")?.innerHTML ?? "",
           className: nextClassName,
           title: nextTitle,
+          codeText,
+          lang,
         });
       })
       .catch((error) => {
         console.error("Failed to highlight code:", error);
-        setRenderState({ html: "", className: nextClassName, title: nextTitle });
+        setRenderState({ html: "", className: nextClassName, title: nextTitle, codeText, lang });
       });
   }, [children]);
 
@@ -66,6 +76,10 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
       console.error("Failed to copy code:", error);
     }
   };
+
+  if (lang === "mermaid") {
+    return <Mermaid chart={codeText} />;
+  }
 
   return (
     <div className="group relative rounded-xl overflow-hidden border border-border">
@@ -89,16 +103,14 @@ export function CodeBlock({ children, ...props }: CodeBlockProps) {
         >
           {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
         </Button>
-        {html && (
+        {html ? (
           <div className="p-3">
             <code
               className={`shiki ${className}`}
               dangerouslySetInnerHTML={{ __html: html }}
             />
           </div>
-        )}
-
-        {!html && (
+        ) : (
           <div className="p-4">
             {children}
           </div>
