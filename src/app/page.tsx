@@ -11,6 +11,7 @@ import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
 import SpeakingSection from "@/components/section/speaking-section";
 import AwardsSection from "@/components/section/awards-section";
+import ImpactSection from "@/components/section/impact-section";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -55,6 +56,11 @@ export default function Page() {
             </div>
           </BlurFade>
         </div>
+      </section>
+      <section id="impact">
+        <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
+          <ImpactSection />
+        </BlurFade>
       </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-6">

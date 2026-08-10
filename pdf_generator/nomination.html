@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Residency Nomination Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #A9852D;
+            --deep-gold: #8B6A21;
+            --light-champagne: #D8C48A;
+            --warm-off-white: #FAF9F5;
+            --pure-white: #FFFFFF;
+            --charcoal: #242424;
+            --warm-grey: #6F6B63;
+            --light-grey: #E9E6DE;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e5e5e5;
+            color: var(--charcoal);
+            padding: 40px 20px;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-print {
+            background-color: var(--primary-gold);
+            color: var(--pure-white);
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(169, 133, 45, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .btn-print:hover {
+            background-color: var(--deep-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Instructions for printing */
+        .print-hint {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 16:9 Page Container */
+        .page {
+            width: 100%;
+            max-width: 1600px;
+            aspect-ratio: 16 / 9;
+            background-color: var(--pure-white);
+            position: relative;
+            margin: 0 auto 60px auto;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* Ensure images scale correctly inside flex containers */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Layout scaling factor (assuming ~1600px width is 100cqi) */
+        .page-content {
+            container-type: inline-size;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3cqw 5cqw;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid var(--light-grey);
+            background: var(--pure-white);
+            margin-top: auto;
+        }
+
+        .footer-left h4 {
+            font-size: 1.1cqw;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.3cqw;
+        }
+
+        .footer-left p {
+            font-size: 0.9cqw;
+            color: var(--warm-grey);
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 0.75cqw;
+            color: var(--warm-grey);
+            max-width: 30cqw;
+            line-height: 1.4;
+        }
+
+        .gold-line {
+            width: 4cqw;
+            height: 0.3cqw;
+            background-color: var(--primary-gold);
+            margin: 2cqw 0;
+        }
+
+        /* --- PAGE 1 --- */
+        .p1-container {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .p1-left {
+            flex: 1;
+            padding: 5cqw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .p1-hero-title {
+            font-size: 5cqw;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 1.5cqw;
+        }
+
+        .p1-subtitle {
+            font-size: 2cqw;
+            font-weight: 300;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            margin-bottom: 0.8cqw;
+            text-transform: uppercase;
+        }
+        
+        .p1-sub-subtitle {
+            font-size: 1.5cqw;
+            font-weight: 400;
+            color: var(--warm-grey);
+            margin-bottom: 2cqw;
+        }
+
+        .p1-nomination {
+            font-size: 1.2cqw;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--deep-gold);
+            margin-bottom: 4cqw;
+            display: inline-block;
+            border-bottom: 1px solid var(--primary-gold);
+            padding-bottom: 0.5cqw;
+            align-self: flex-start;
+        }
+
+        .p1-intro {
+            font-size: 1.4cqw;
+            line-height: 1.6;
+            color: var(--charcoal);
+            max-width: 38cqw;
+            margin-bottom: 4cqw;
+            font-weight: 300;
+        }
+
+        .p1-stats-strip {
+            display: flex;
+            gap: 3cqw;
+            margin-bottom: 3cqw;
+        }
+
+        .p1-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p1-stat-num {
+            font-size: 2.8cqw;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1;
+            margin-bottom: 0.5cqw;
+        }
+
+        .p1-stat-label {
+            font-size: 0.9cqw;
+            font-weight: 600;
+            color: var(--warm-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .p1-current-role {
+            background-color: var(--warm-off-white);
+            padding: 2cqw 2.5cqw;
+            border-left: 0.3cqw solid var(--primary-gold);
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        .p1-role-grid {
+            display: flex;
+            gap: 4cqw;
+        }
+
+        .p1-role-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p1-role-label {
+            font-size: 0.8cqw;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--warm-grey);
+            margin-bottom: 0.5cqw;
+            font-weight: 600;
+        }
+
+        .p1-role-value {
+            font-size: 1.1cqw;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .p1-right {
+            flex: 0.7;
+            background-color: var(--light-grey);
+            position: relative;
+        }
+        
+        .p1-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top; /* Adjusts framing for portrait photos */
+        }
+
+        /* --- PAGE 2 --- */
+        .p2-container {
+            padding: 4cqw 5cqw 2cqw 5cqw;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .p2-header {
+            margin-bottom: 2cqw;
+        }
+        
+        .p2-title {
+            font-size: 2.2cqw;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+        }
+        
+        .p2-content {
+            display: flex;
+            flex: 1;
+            gap: 5cqw;
+            min-height: 0;
+        }
+        
+        .p2-col-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .p2-timeline {
+            margin-top: 1cqw;
+            flex: 1;
+            position: relative;
+        }
+        
+        .p2-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5cqw;
+            top: 1cqw;
+            bottom: 1cqw;
+            width: 0.15cqw;
+            background-color: var(--light-champagne);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5cqw;
+            margin-bottom: 1.8cqw;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.15cqw;
+            top: 0.4cqw;
+            width: 0.8cqw;
+            height: 0.8cqw;
+            border-radius: 50%;
+            background-color: var(--primary-gold);
+            border: 2px solid var(--pure-white);
+        }
+        
+        .timeline-date {
+            font-size: 0.9cqw;
+            font-weight: 600;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+            margin-bottom: 0.2cqw;
+        }
+        
+        .timeline-title {
+            font-size: 1.2cqw;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.2cqw;
+        }
+        
+        .timeline-desc {
+            font-size: 1cqw;
+            color: var(--warm-grey);
+            font-weight: 300;
+        }
+
+        .p2-tech-leadership {
+            background-color: var(--warm-off-white);
+            padding: 2cqw;
+            margin-top: auto;
+        }
+        
+        .p2-tech-title {
+            font-size: 1cqw;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            margin-bottom: 1cqw;
+        }
+        
+        .p2-tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1cqw;
+        }
+        
+        .tech-item {
+            font-size: 0.9cqw;
+            color: var(--charcoal);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-item::before {
+            content: '';
+            display: inline-block;
+            width: 0.3cqw;
+            height: 0.3cqw;
+            background-color: var(--primary-gold);
+            margin-right: 0.5cqw;
+            border-radius: 50%;
+        }
+
+        .p2-col-right {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .p2-impact-hero {
+            background-color: var(--charcoal);
+            color: var(--pure-white);
+            padding: 3cqw;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .p2-impact-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 15cqw; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(169, 133, 45, 0.15));
+        }
+
+        .p2-impact-title {
+            font-size: 1.6cqw;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1cqw;
+            color: var(--pure-white);
+        }
+        
+        .p2-impact-desc {
+            font-size: 1.2cqw;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--light-grey);
+            margin-bottom: 2.5cqw;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2cqw;
+        }
+        
+        .impact-big {
+            grid-column: 1 / -1;
+            margin-bottom: 0.5cqw;
+        }
+        
+        .impact-big .i-num {
+            font-size: 6cqw;
+            font-weight: 700;
+            color: var(--primary-gold);
+            line-height: 1;
+            margin-bottom: 0.5cqw;
+            letter-spacing: -2px;
+        }
+        
+        .impact-big .i-label {
+            font-size: 1.2cqw;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--pure-white);
+            font-weight: 300;
+        }
+        
+        .i-small .i-num {
+            font-size: 2.8cqw;
+            font-weight: 600;
+            color: var(--light-champagne);
+            line-height: 1;
+            margin-bottom: 0.3cqw;
+        }
+        
+        .i-small .i-label {
+            font-size: 0.8cqw;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--light-grey);
+            font-weight: 400;
+        }
+        
+        .p2-image-row {
+            display: flex;
+            gap: 1.5cqw;
+            margin-top: 1.5cqw;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .p2-image {
+            flex: 1;
+            background-color: var(--light-grey);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .p2-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- PAGE 3 --- */
+        .p3-container {
+            padding: 5cqw;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .p3-header {
+            text-align: center;
+            margin-bottom: 3cqw;
+        }
+        
+        .p3-title {
+            font-size: 2.8cqw;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: var(--charcoal);
+        }
+        
+        .p3-split {
+            display: flex;
+            gap: 5cqw;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .p3-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .p3-section-title {
+            font-size: 1.2cqw;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-gold);
+            margin-bottom: 0.5cqw;
+        }
+        
+        .p3-award-subtitle {
+            font-size: 1.5cqw;
+            color: var(--charcoal);
+            font-weight: 300;
+            margin-bottom: 1cqw;
+        }
+        
+        .p3-award-desc {
+            font-size: 1.1cqw;
+            color: var(--warm-grey);
+            line-height: 1.5;
+            margin-bottom: 2cqw;
+            font-weight: 300;
+        }
+        
+        .p3-award-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1cqw;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .award-main-img {
+            flex: 2;
+            border: 1px solid var(--light-champagne);
+            overflow: hidden;
+            background: var(--light-grey);
+        }
+        
+        .award-main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .award-sub-imgs {
+            display: flex;
+            gap: 1cqw;
+            flex: 1;
+        }
+        
+        .award-sub-img {
+            flex: 1;
+            overflow: hidden;
+            background: var(--light-grey);
+        }
+        
+        .award-sub-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .p3-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--warm-off-white);
+            padding: 3cqw;
+        }
+        
+        .p3-ai-intro {
+            font-size: 1.4cqw;
+            color: var(--charcoal);
+            line-height: 1.5;
+            margin-bottom: 2.5cqw;
+            font-weight: 300;
+        }
+        
+        .ai-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 2cqw;
+            flex: 1;
+        }
+        
+        .ai-pillar h3 {
+            font-size: 1.1cqw;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 0.5cqw;
+            letter-spacing: 1px;
+        }
+        
+        .ai-pillar p {
+            font-size: 0.95cqw;
+            color: var(--charcoal);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .p3-future {
+            margin-top: 2cqw;
+            padding-top: 2cqw;
+            border-top: 1px solid var(--light-champagne);
+        }
+        
+        .p3-future-title {
+            font-size: 1cqw;
+            font-weight: 600;
+            color: var(--deep-gold);
+            margin-bottom: 0.8cqw;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .p3-future-desc {
+            font-size: 1.05cqw;
+            color: var(--charcoal);
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            @page {
+                size: 16in 9in; /* Force landscape 16:9 for PDF */
+                margin: 0; 
+            }
+            body {
+                padding: 0;
+                background-color: var(--pure-white);
+            }
+            .controls {
+                display: none;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100vw;
+                height: 100vh;
+                max-width: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button class="btn-print" onclick="window.print()">Download as PDF</button>
+        <p class="print-hint">For best results: Destination "Save as PDF", Layout "Landscape", Margins "None", Background Graphics "Checked".</p>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="p1-container">
+                <div class="p1-left">
+                    <div class="p1-nomination">Golden Residency Nomination Profile</div>
+                    
+                    <h1 class="p1-hero-title">VINEET SANSARE</h1>
+                    <h2 class="p1-subtitle">Digital Technology Talent</h2>
+                    <h3 class="p1-sub-subtitle">Engineering Leader &middot; Fintech &middot; Digital Wealth &middot; AI</h3>
+                    
+                    <div class="gold-line"></div>
+                    
+                    <p class="p1-intro">
+                        Technology engineering leader with 15+ years of experience building digital products across banking, fintech and mobile platforms. Based in Dubai, Vineet currently leads engineering initiatives within Emirates NBD's Digital Wealth domain while actively exploring AI-assisted software engineering, automation and AI-native product development.
+                    </p>
+                    
+                    <div class="p1-stats-strip">
+                        <div class="p1-stat">
+                            <div class="p1-stat-num">15+</div>
+                            <div class="p1-stat-label">Years<br>Technology Experience</div>
+                        </div>
+                        <div class="p1-stat">
+                            <div class="p1-stat-num">AED 1B+</div>
+                            <div class="p1-stat-label">Digital Investment<br>Turnover</div>
+                        </div>
+                        <div class="p1-stat">
+                            <div class="p1-stat-num">25K+</div>
+                            <div class="p1-stat-label">Digital Investment<br>Accounts</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p1-stats-strip" style="margin-bottom: 2cqw;">
+                        <div class="p1-stat">
+                            <div class="p1-stat-num">24K+</div>
+                            <div class="p1-stat-label">STP<br>Trades</div>
+                        </div>
+                        <div class="p1-stat">
+                            <div class="p1-stat-num">5+</div>
+                            <div class="p1-stat-label">Investment<br>Products</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p1-current-role">
+                        <div class="p1-role-grid">
+                            <div class="p1-role-item">
+                                <div class="p1-role-label">Current Role</div>
+                                <div class="p1-role-value">Engineering Tech Lead<br>Emirates NBD &middot; Dubai</div>
+                            </div>
+                            <div class="p1-role-item">
+                                <div class="p1-role-label">Specialisation</div>
+                                <div class="p1-role-value">Digital Banking &middot; Fintech<br>Digital Wealth &middot; AI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p1-right">
+                    <img src="../public/me.png" alt="Vineet Sansare">
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-left">
+                    <h4>VINEET SANSARE</h4>
+                    <p>Digital Technology &middot; Fintech &middot; AI &middot; Engineering Leadership<br>Dubai, United Arab Emirates &middot; vineetsansare.com &middot; linkedin.com/in/vineetsansare</p>
+                </div>
+                <div class="footer-right">
+                    Supporting profile for Golden Residency nomination under the Digital Technology Talent category.<br>Final nomination and approval remain subject to the competent UAE authority.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="p2-container">
+                <div class="p2-header">
+                    <h2 class="p2-title">From Software Engineering to Digital Wealth Leadership</h2>
+                    <div class="gold-line" style="margin: 1cqw 0 0 0;"></div>
+                </div>
+                
+                <div class="p2-content">
+                    <div class="p2-col-left">
+                        <div class="p2-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">FOUNDATIONS</div>
+                                <div class="timeline-title">Software Engineering</div>
+                                <div class="timeline-desc">Hexaware &middot; Mobond Consultancy</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">ENTERPRISE TECHNOLOGY</div>
+                                <div class="timeline-title">Large-scale Application Engineering</div>
+                                <div class="timeline-desc">Idealake &middot; Hinduja Global Solutions</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2019</div>
+                                <div class="timeline-title">Abu Dhabi Islamic Bank (ADIB)</div>
+                                <div class="timeline-desc">Banking & Fintech &middot; Mobile Architecture</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2022</div>
+                                <div class="timeline-title">Emirates NBD</div>
+                                <div class="timeline-desc">Digital Banking &middot; Engineering Delivery</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2023</div>
+                                <div class="timeline-title">GEM Recognition</div>
+                                <div class="timeline-desc">Service Excellence</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">TODAY</div>
+                                <div class="timeline-title">Digital Wealth + AI</div>
+                                <div class="timeline-desc">AI-Powered Software Delivery</div>
+                            </div>
+                        </div>
+                        
+                        <div class="p2-tech-leadership">
+                            <div class="p2-tech-title">Engineering Leadership</div>
+                            <div class="p2-tech-grid">
+                                <div class="tech-item">Enterprise Architecture</div>
+                                <div class="tech-item">Digital Banking</div>
+                                <div class="tech-item">Fintech</div>
+                                <div class="tech-item">Swift & SwiftUI</div>
+                                <div class="tech-item">Mobile Modernisation</div>
+                                <div class="tech-item">CI/CD Automation</div>
+                                <div class="tech-item">Technical Leadership</div>
+                                <div class="tech-item">Engineering Mentoring</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p2-col-right">
+                        <div class="p2-impact-hero">
+                            <h3 class="p2-impact-title">BUILDING DIGITAL WEALTH IN THE UAE</h3>
+                            <p class="p2-impact-desc">At Emirates NBD, Vineet has contributed to the engineering and delivery of digital wealth capabilities spanning UAE equities, mutual funds, bonds, investment onboarding and portfolio analytics.</p>
+                            
+                            <div class="impact-grid">
+                                <div class="impact-big">
+                                    <div class="i-num">AED 1B+</div>
+                                    <div class="i-label">Digital Investment Turnover Milestone</div>
+                                </div>
+                                <div class="i-small">
+                                    <div class="i-num">25K+</div>
+                                    <div class="i-label">Digital Investment Accounts</div>
+                                </div>
+                                <div class="i-small">
+                                    <div class="i-num">24K+</div>
+                                    <div class="i-label">Straight-Through-Processing Trades</div>
+                                </div>
+                                <div class="i-small">
+                                    <div class="i-num">5+</div>
+                                    <div class="i-label">Investment Products</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p2-image-row">
+                            <div class="p2-image">
+                                <img src="../public/enbd-project.jpg" alt="Emirates NBD Digital Wealth">
+                            </div>
+                            <div class="p2-image">
+                                <img src="../public/adib-project.jpg" alt="ADIB Mobile Banking">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-left">
+                    <h4>VINEET SANSARE</h4>
+                    <p>Digital Technology &middot; Fintech &middot; AI &middot; Engineering Leadership<br>Dubai, United Arab Emirates &middot; vineetsansare.com &middot; linkedin.com/in/vineetsansare</p>
+                </div>
+                <div class="footer-right">
+                    Supporting profile for Golden Residency nomination under the Digital Technology Talent category.<br>Final nomination and approval remain subject to the competent UAE authority.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page">
+        <div class="page-content">
+            <div class="p3-container">
+                <div class="p3-header">
+                    <h2 class="p3-title">RECOGNISED FOR EXCELLENCE. BUILDING FOR WHAT'S NEXT.</h2>
+                    <div class="gold-line" style="margin: 1cqw auto 0 auto;"></div>
+                </div>
+                
+                <div class="p3-split">
+                    <div class="p3-left">
+                        <div class="p3-section-title">EMIRATES NBD GEM AWARD</div>
+                        <div class="p3-award-subtitle">Service Excellence &middot; H1 2023</div>
+                        <p class="p3-award-desc">Recognised by Emirates NBD for Service Excellence in H1 2023 for outstanding technical leadership and delivering mission-critical Digital Wealth products.</p>
+                        
+                        <div class="p3-award-images">
+                            <div class="award-main-img">
+                                <img src="../public/awards/gem-trophy-closeup.jpg" alt="GEM Award Trophy">
+                            </div>
+                            <div class="award-sub-imgs">
+                                <div class="award-sub-img">
+                                    <img src="../public/awards/gem-certificate.jpg" alt="GEM Award Certificate">
+                                </div>
+                                <div class="award-sub-img">
+                                    <img src="../public/awards/gem-venue.jpg" alt="GEM Award Venue">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p3-right">
+                        <div class="p3-section-title">EXPLORING THE NEXT GENERATION OF SOFTWARE ENGINEERING</div>
+                        <p class="p3-ai-intro">An experienced software engineer actively adapting to AI-native engineering and modern developer productivity.</p>
+                        
+                        <div class="ai-pillars">
+                            <div class="ai-pillar">
+                                <h3>AI-ASSISTED ENGINEERING</h3>
+                                <p>Applying AI coding agents and Large Language Models (LLMs) like Claude Code, Google Gemini, and GitHub Copilot to accelerate software delivery and architecture reviews.</p>
+                            </div>
+                            <div class="ai-pillar">
+                                <h3>AUTOMATION</h3>
+                                <p>Building intelligent workflows, local LLM integrations, and developer productivity systems using tools like n8n and advanced Git workflows.</p>
+                            </div>
+                            <div class="ai-pillar">
+                                <h3>AI PRODUCTS</h3>
+                                <p>Exploring and building data-driven, extensible AI integrations and AI-powered tools to optimize engineering workflows.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p3-future">
+                            <div class="p3-future-title">CONTINUING TO CONTRIBUTE TO THE UAE'S DIGITAL ECONOMY</div>
+                            <p class="p3-future-desc">"With deep experience across financial technology and an evolving focus on AI-native engineering, Vineet aims to continue contributing to the UAE's digital ecosystem through technology leadership, innovation, knowledge sharing and digital product development."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div class="footer-left">
+                    <h4>VINEET SANSARE</h4>
+                    <p>Digital Technology &middot; Fintech &middot; AI &middot; Engineering Leadership<br>Dubai, United Arab Emirates &middot; vineetsansare.com &middot; linkedin.com/in/vineetsansare</p>
+                </div>
+                <div class="footer-right">
+                    Supporting profile for Golden Residency nomination under the Digital Technology Talent category.<br>Final nomination and approval remain subject to the competent UAE authority.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

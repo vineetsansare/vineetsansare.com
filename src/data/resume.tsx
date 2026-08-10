@@ -255,18 +255,28 @@ export const DATA = {
   ],
   awards: [
     {
-      title: "ENBD GEM Award",
+      title: "ENBD GEM Award — Service Excellence",
       dates: "2023",
-      location: "Emirates NBD",
-      description: "Recognized for outstanding technical leadership and successful delivery of the Digital Wealth portfolio.",
+      location: "Emirates NBD · DBCX Digital Banking",
+      description: "Awarded the prestigious GEM (Going the Extra Mile) Award for Service Excellence at the Emirates NBD DBCX Digital Banking ceremony. Recognized for outstanding technical leadership, delivering mission-critical Digital Wealth products, and consistently going above and beyond in engineering excellence.",
       image: "/enbd-logo.jpg",
+      images: [
+        { src: "/awards/gem-trophy-closeup.jpg", alt: "GEM Award trophy — Presented to Vineet Sansare for Service Excellence H1-2023" },
+        { src: "/awards/gem-certificate.jpg", alt: "GEM Award certificate and trophy" },
+        { src: "/awards/gem-trophies-table.jpg", alt: "GEM Award trophies on display" },
+        { src: "/awards/gem-team.jpg", alt: "Team celebration at the GEM Awards ceremony" },
+        { src: "/awards/gem-venue.jpg", alt: "GEM Awards ceremony venue" },
+      ],
     },
     {
-      title: "ACE Award",
-      dates: "2013",
+      title: "ACE Award — Technical Excellence",
+      dates: "2012",
       location: "Hexaware Technologies",
-      description: "Awarded for exceptional technical contribution, innovation, and engineering excellence in pioneering early native mobile app architecture.",
+      description: "Recognized for outstanding technical contribution to the International SOS General Manager portal project, empowering senior leadership to effortlessly generate critical reports and drive strategic, data-backed business decisions.",
       image: "https://www.google.com/s2/favicons?domain=hexaware.com&sz=128",
+      images: [
+        { src: "/awards/ace-award.jpg", alt: "ACE Award for outstanding contribution" }
+      ]
     }
   ],
   hackathons: [],
