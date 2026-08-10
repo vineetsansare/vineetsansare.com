@@ -91,7 +91,7 @@ export default function AwardsSection() {
                         <div 
                           key={idx} 
                           className="relative flex-none w-[85vw] sm:w-[280px] md:w-[320px] aspect-[16/10] snap-center sm:snap-start overflow-hidden rounded-xl border border-border shadow-sm bg-muted cursor-pointer transition-transform duration-300 hover:shadow-md"
-                          onClick={() => setSelectedGallery({ images: award.images as any[], index: idx })}
+                          onClick={() => setSelectedGallery({ images: award.images as unknown as any[], index: idx })}
                         >
                           <img
                             src={img.src}

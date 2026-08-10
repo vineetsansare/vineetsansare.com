@@ -5,7 +5,9 @@ import { Copy, Check } from "lucide-react";
 import { Button } from "../ui/button";
 import { codeToHtml } from "shiki/bundle/web";
 import { cn } from "@/lib/utils";
-import { Mermaid } from "./mermaid";
+import dynamic from "next/dynamic";
+
+const Mermaid = dynamic(() => import("./mermaid").then((mod) => mod.Mermaid), { ssr: false });
 
 type CodeBlockProps = ComponentProps<"pre">;
 
