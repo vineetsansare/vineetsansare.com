@@ -207,7 +207,7 @@ export const DATA = {
     },
     {
       title: "AI Engineering Experiments",
-      href: "#",
+      href: "https://github.com/vineetsansare/ai-cv-optimizer",
       dates: "2023 - Present",
       active: true,
       description:
@@ -218,6 +218,13 @@ export const DATA = {
         "n8n",
         "GitHub Copilot",
         "Automation"
+      ],
+      links: [
+        {
+          type: "GitHub",
+          href: "https://github.com/vineetsansare/ai-cv-optimizer",
+          icon: <Icons.github className="size-3" />,
+        },
       ],
       image: "/ai_engineering.jpg",
       video: "",
