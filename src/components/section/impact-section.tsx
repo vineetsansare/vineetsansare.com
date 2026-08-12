@@ -80,11 +80,11 @@ const MetricCard = ({ value, suffix = '', prefix = '', label, delay = 0 }: Metri
 export default function ImpactSection() {
   const metrics = [
     { value: 14, suffix: '+', label: 'Years of Engineering Experience', delay: 0 },
-    { value: 5, suffix: 'M+', label: 'Users Impacted via Digital Banking', delay: 100 },
+    { value: 100, suffix: 'k+', label: 'Users Impacted via Digital Banking', delay: 100 },
     { value: 3, label: 'Enterprise Banking Apps Architected', delay: 200 },
     { value: 2, label: 'Awards for Excellence', delay: 300 },
     { value: 50, suffix: '%', label: 'Faster Delivery via AI-powered Workflows', delay: 400 },
-    { value: 15, suffix: '+', label: 'Engineers Mentored & Grown', delay: 500 },
+    { value: 50, suffix: '+', label: 'Engineers Mentored & Grown', delay: 500 },
   ];
 
   return (
