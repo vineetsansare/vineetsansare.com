@@ -206,29 +206,30 @@ export const DATA = {
       video: "",
     },
     {
-      title: "AI Engineering Experiments",
-      href: "https://github.com/vineetsansare/ai-cv-optimizer",
-      dates: "2023 - Present",
+      title: "Tools by Vineet",
+      href: "https://toolsby.vineetsansare.com/",
+      dates: "2024 - Present",
       active: true,
       description:
-        "Exploring data-driven, extensible AI integrations including local LLMs, n8n automations, and git worktrees to optimize engineering workflows.",
+        "A curated directory of practical software tools and AI engineering experiments built by Vineet, featuring JD2CV (AI-powered CV Tailoring) and modern developer utilities.",
       technologies: [
-        "Claude Code",
-        "Local LLMs",
-        "n8n",
-        "GitHub Copilot",
-        "Automation"
+        "AI Tools",
+        "JD2CV",
+        "TypeScript",
+        "React",
+        "Automations",
+        "Developer Suite"
       ],
       links: [
         {
-          type: "GitHub",
-          href: "https://github.com/vineetsansare/ai-cv-optimizer",
-          icon: <Icons.github className="size-3" />,
+          type: "Website",
+          href: "https://toolsby.vineetsansare.com/",
+          icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "/ai_engineering.jpg",
       video: "",
-    }
+    },
   ],
   speaking: [
     {
